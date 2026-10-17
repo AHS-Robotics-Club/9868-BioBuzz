@@ -1,4 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url "https://repo.dairy.foundation/releases" }
+    }
+    dependencies {
+        classpath "dev.frozenmilk:Load:0.3.2"
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'dev.frozenmilk.sinister.sloth.load'
 
 //
 // build.gradle in TeamCode
@@ -24,6 +36,17 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    google()
+    maven { url = "https://repo.dairy.foundation/releases" }
+    maven { url = "https://repo.dairy.foundation/snapshots" }
+}
+
 dependencies {
-    implementation project(':FtcRobotController')
+    implementation "org.solverslib:core:0.3.6"
+    implementation "org.solverslib:pedroPathing:0.3.6"
+    implementation "com.pedropathing:core:3.0.2"
+    implementation "com.pedropathing:revhub:3.0.2"
+    implementation "dev.frozenmilk.sinister:Sloth:0.3.2"
 }

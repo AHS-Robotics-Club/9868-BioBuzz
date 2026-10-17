@@ -1,40 +1,34 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.seattlesolvers.solverslib.command.SubsystemBase;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.seattlesolvers.solverslib.command.SubsystemBase;
-import com.seattlesolvers.solverslib.hardware.servos.ServoEx;
 
+/**
+ * A gripper mechanism that grabs a stone from the quarry.
+ * Centered around the Skystone game for FTC that was done in the 2019
+ * to 2020 season.
+ */
 public class Gate extends SubsystemBase {
 
+    private final Servo gate;
 
+    public Gate(final HardwareMap hMap, final String name, final double range) {
+        gate = hMap.get(Servo.class, name);
+    }
+    /**
+     * Grabs a stone.
+     */
 
-    private ServoEx gate;
-
-    public Gate(final HardwareMap hMap, final String it) {
-
-        intake = hMap.get(DcMotorEx.class, it);
-
-
-        intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-
-        intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-
-        intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-        intake.setDirection(DcMotorSimple.Direction.REVERSE);
-
-//        flywheelpid = new PIDController(0,0,0);
-
-
-
+    public void block() {
+        gate.setPosition(0.76);
     }
 
-
+    /**
+     * Releases a stone.
+     */
+    public void open() {
+        gate.setPosition(0);
+    }
 
 }

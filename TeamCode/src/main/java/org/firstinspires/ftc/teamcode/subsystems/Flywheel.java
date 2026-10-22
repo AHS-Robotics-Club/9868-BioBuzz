@@ -94,7 +94,7 @@ public class Flywheel extends SubsystemBase {
     @Override
     public void periodic() {
 
-        currentVelo = -flywheel1.getVelocity();
+        currentVelo = flywheel1.getVelocity();
 
 
         if (-currentVelo < targetVelo - 20) {

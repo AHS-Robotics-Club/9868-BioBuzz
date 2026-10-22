@@ -77,7 +77,7 @@ public class FlywheelPIDTuningOpmode extends CommandOpMode {
         packet.put("PID kP", kP);
         packet.put("PID kI", kI);
         packet.put("PID kD", kD);
-        packet.put("Current Velo(Ticks)", currentVelo);
+        packet.put("Current Velo(Ticks)", -currentVelo);
         packet.put("Target Velo (Ticks)", pidTarget);
         packet.put("Error", error);
 //        packet.put("F1P", fly1pwr);
